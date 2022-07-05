@@ -1,0 +1,60 @@
+CMINUS PARSING: 
+
+Syntax tree:
+  FuncK
+    IntK
+    IdK: gcd
+    ParamsK
+      ParamK
+        IntK
+        IdK: u
+      ParamK
+        IntK
+        IdK: v
+    CompK
+      If
+        Op: ==
+          IdK: v
+          ConstK: 0
+        Return
+          IdK: u
+        Return
+          CallK
+            IdK: gcd
+            ArgsK
+              IdK: v
+              Op: -
+                IdK: u
+                Op: *
+                  Op: /
+                    IdK: u
+                    IdK: v
+                  IdK: v
+  FuncK
+    VoidK
+    IdK: main
+    ParamsK
+      VoidK
+    CompK
+      Var_DeclK
+        IntK
+        IdK: x
+      Var_DeclK
+        IntK
+        IdK: y
+      Assign
+        IdK: x
+        CallK
+          IdK: input
+      Assign
+        IdK: y
+        CallK
+          IdK: input
+      CallK
+        IdK: output
+        ArgsK
+          CallK
+            IdK: gcd
+            ArgsK
+              IdK: x
+              IdK: y

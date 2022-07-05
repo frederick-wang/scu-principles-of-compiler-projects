@@ -1,0 +1,188 @@
+CMINUS PARSING:
+
+Syntax tree:
+  Var_DeclK
+    IntK
+    Arry_DeclK
+      IdK: x
+      ConstK: 10
+  FuncK
+    IntK
+    IdK: minloc
+    ParamsK
+      ParamK
+        IntK
+        IdK: a
+        IdK: 
+      ParamK
+        IntK
+        IdK: low
+      ParamK
+        IntK
+        IdK: high
+    CompK
+      Var_DeclK
+        IntK
+        IdK: i
+      Var_DeclK
+        IntK
+        IdK: x
+      Var_DeclK
+        IntK
+        IdK: k
+      Assign
+        IdK: k
+        IdK: low
+      Assign
+        IdK: x
+        Arry_ElemK
+          IdK: a
+          IdK: low
+      Assign
+        IdK: i
+        Op: +
+          IdK: low
+          ConstK: 1
+      While
+        Op: <
+          IdK: i
+          IdK: high
+        CompK
+          If
+            Op: <
+              Arry_ElemK
+                IdK: a
+                IdK: i
+              IdK: x
+            CompK
+              Assign
+                IdK: x
+                Arry_ElemK
+                  IdK: a
+                  IdK: i
+              Assign
+                IdK: k
+                IdK: i
+          Assign
+            IdK: i
+            Op: +
+              IdK: i
+              ConstK: 1
+      Return
+        IdK: k
+  FuncK
+    VoidK
+    IdK: sort
+    ParamsK
+      ParamK
+        IntK
+        IdK: a
+        IdK: 
+      ParamK
+        IntK
+        IdK: low
+      ParamK
+        IntK
+        IdK: high
+    CompK
+      Var_DeclK
+        IntK
+        IdK: i
+      Var_DeclK
+        IntK
+        IdK: k
+      Var_DeclK
+        IntK
+        IdK: low
+      While
+        Op: <
+          IdK: i
+          Op: -
+            IdK: high
+            ConstK: 1
+        CompK
+          Var_DeclK
+            IntK
+            IdK: t
+          Assign
+            IdK: k
+            CallK
+              IdK: minloc
+              ArgsK
+                IdK: a
+                IdK: i
+                IdK: high
+          Assign
+            IdK: t
+            Arry_ElemK
+              IdK: a
+              IdK: k
+          Assign
+            Arry_ElemK
+              IdK: a
+              IdK: k
+            Arry_ElemK
+              IdK: a
+              IdK: i
+          Assign
+            Arry_ElemK
+              IdK: a
+              IdK: i
+            IdK: t
+          Assign
+            IdK: i
+            Op: +
+              IdK: i
+              ConstK: 1
+  FuncK
+    VoidK
+    IdK: main
+    ParamsK
+      VoidK
+    CompK
+      Var_DeclK
+        IntK
+        IdK: i
+      Assign
+        IdK: i
+        ConstK: 0
+      While
+        Op: <
+          IdK: i
+          ConstK: 10
+        CompK
+          Assign
+            Arry_ElemK
+              IdK: x
+              IdK: i
+            IdK: input
+          Assign
+            IdK: i
+            Op: +
+              IdK: i
+              ConstK: 1
+          CallK
+            IdK: sort
+            ArgsK
+              IdK: x
+              ConstK: 0
+              ConstK: 10
+          Assign
+            IdK: i
+            ConstK: 0
+          While
+            Op: <
+              IdK: i
+              ConstK: 10
+            CompK
+              CallK
+                IdK: output
+                ArgsK
+                  Arry_ElemK
+                    IdK: x
+                    IdK: i
+              Assign
+                IdK: i
+                Op: +
+                  IdK: i
+                  ConstK: 1

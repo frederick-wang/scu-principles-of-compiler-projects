@@ -1,0 +1,291 @@
+CMINUS COMPILATION:
+   1: /* A program to perform selection sort on a 10
+   2:  	element array. */
+   3: int x[10];
+	3: reserved word: int
+	3: ID, name= x
+	3: [
+	3: NUM, val= 10
+	3: ]
+	3: ;
+   4: int minloc( int a[], int low, int high )
+	4: reserved word: int
+	4: ID, name= minloc
+	4: (
+	4: reserved word: int
+	4: ID, name= a
+	4: [
+	4: ]
+	4: ,
+	4: reserved word: int
+	4: ID, name= low
+	4: ,
+	4: reserved word: int
+	4: ID, name= high
+	4: )
+   5: { 
+	5: {
+   6: 	int i; int x; int k;
+	6: reserved word: int
+	6: ID, name= i
+	6: ;
+	6: reserved word: int
+	6: ID, name= x
+	6: ;
+	6: reserved word: int
+	6: ID, name= k
+	6: ;
+   7: 	k = low;
+	7: ID, name= k
+	7: =
+	7: ID, name= low
+	7: ;
+   8: 	x = a[low];
+	8: ID, name= x
+	8: =
+	8: ID, name= a
+	8: [
+	8: ID, name= low
+	8: ]
+	8: ;
+   9: 	i = low + 1;
+	9: ID, name= i
+	9: =
+	9: ID, name= low
+	9: +
+	9: NUM, val= 1
+	9: ;
+  10: 	while(i < high)
+	10: reserved word: while
+	10: (
+	10: ID, name= i
+	10: <
+	10: ID, name= high
+	10: )
+  11:     { 
+	11: {
+  12:     	if(a[i] < x)
+	12: reserved word: if
+	12: (
+	12: ID, name= a
+	12: [
+	12: ID, name= i
+	12: ]
+	12: <
+	12: ID, name= x
+	12: )
+  13:         {  
+	13: {
+  14:         	x = a[i];
+	14: ID, name= x
+	14: =
+	14: ID, name= a
+	14: [
+	14: ID, name= i
+	14: ]
+	14: ;
+  15:           	k = i; 
+	15: ID, name= k
+	15: =
+	15: ID, name= i
+	15: ;
+  16: 		}
+	16: }
+  17: 		i = i + 1;
+	17: ID, name= i
+	17: =
+	17: ID, name= i
+	17: +
+	17: NUM, val= 1
+	17: ;
+  18:     }
+	18: }
+  19: 	return k;
+	19: reserved word: return
+	19: ID, name= k
+	19: ;
+  20: }
+	20: }
+  21: 
+  22: void sort ( int a[], int low, int high )
+	22: reserved word: void
+	22: ID, name= sort
+	22: (
+	22: reserved word: int
+	22: ID, name= a
+	22: [
+	22: ]
+	22: ,
+	22: reserved word: int
+	22: ID, name= low
+	22: ,
+	22: reserved word: int
+	22: ID, name= high
+	22: )
+  23: { 
+	23: {
+  24: 	int i; int k;
+	24: reserved word: int
+	24: ID, name= i
+	24: ;
+	24: reserved word: int
+	24: ID, name= k
+	24: ;
+  25: 	int low;
+	25: reserved word: int
+	25: ID, name= low
+	25: ;
+  26: 	while (i < high-1)
+	26: reserved word: while
+	26: (
+	26: ID, name= i
+	26: <
+	26: ID, name= high
+	26: -
+	26: NUM, val= 1
+	26: )
+  27:     { 
+	27: {
+  28:     	int t;
+	28: reserved word: int
+	28: ID, name= t
+	28: ;
+  29: 		k = minloc (a,i,high);
+	29: ID, name= k
+	29: =
+	29: ID, name= minloc
+	29: (
+	29: ID, name= a
+	29: ,
+	29: ID, name= i
+	29: ,
+	29: ID, name= high
+	29: )
+	29: ;
+  30: 		t =a[k];
+	30: ID, name= t
+	30: =
+	30: ID, name= a
+	30: [
+	30: ID, name= k
+	30: ]
+	30: ;
+  31: 		a[k] = a[i];
+	31: ID, name= a
+	31: [
+	31: ID, name= k
+	31: ]
+	31: =
+	31: ID, name= a
+	31: [
+	31: ID, name= i
+	31: ]
+	31: ;
+  32: 		a[i] = t;
+	32: ID, name= a
+	32: [
+	32: ID, name= i
+	32: ]
+	32: =
+	32: ID, name= t
+	32: ;
+  33: 		i = i + 1;
+	33: ID, name= i
+	33: =
+	33: ID, name= i
+	33: +
+	33: NUM, val= 1
+	33: ;
+  34: 	}
+	34: }
+  35: }
+	35: }
+  36: 
+  37: void main(void)
+	37: reserved word: void
+	37: ID, name= main
+	37: (
+	37: reserved word: void
+	37: )
+  38: { 
+	38: {
+  39: 	int i;
+	39: reserved word: int
+	39: ID, name= i
+	39: ;
+  40: 	i = 0;
+	40: ID, name= i
+	40: =
+	40: NUM, val= 0
+	40: ;
+  41: 	while (i < 10)
+	41: reserved word: while
+	41: (
+	41: ID, name= i
+	41: <
+	41: NUM, val= 10
+	41: )
+  42:     { 
+	42: {
+  43:     	x[i] = input;
+	43: ID, name= x
+	43: [
+	43: ID, name= i
+	43: ]
+	43: =
+	43: ID, name= input
+	43: ;
+  44: 		i = i + 1;
+	44: ID, name= i
+	44: =
+	44: ID, name= i
+	44: +
+	44: NUM, val= 1
+	44: ;
+  45: 		sort (x,0,10);
+	45: ID, name= sort
+	45: (
+	45: ID, name= x
+	45: ,
+	45: NUM, val= 0
+	45: ,
+	45: NUM, val= 10
+	45: )
+	45: ;
+  46: 		i = 0;
+	46: ID, name= i
+	46: =
+	46: NUM, val= 0
+	46: ;
+  47: 		while (i < 10)
+	47: reserved word: while
+	47: (
+	47: ID, name= i
+	47: <
+	47: NUM, val= 10
+	47: )
+  48:         { 
+	48: {
+  49:         	output(x[i]);
+	49: ID, name= output
+	49: (
+	49: ID, name= x
+	49: [
+	49: ID, name= i
+	49: ]
+	49: )
+	49: ;
+  50: 			i = i + 1;
+	50: ID, name= i
+	50: =
+	50: ID, name= i
+	50: +
+	50: NUM, val= 1
+	50: ;
+  51:         }
+	51: }
+  52: 	}
+	52: }
+  53: }
+	53: }
+  54: EOF

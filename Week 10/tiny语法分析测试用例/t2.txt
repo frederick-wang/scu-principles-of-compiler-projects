@@ -1,0 +1,35 @@
+TINY PARSING:
+
+>>> Syntax error at line 6: expected THEN unexpected token -> ERROR: >
+      
+>>> Syntax error at line 6: unexpected token -> ERROR: >
+
+>>> Syntax error at line 6: expected SEMI unexpected token -> ID, name= x
+      
+>>> Syntax error at line 6: expected ASSIGN unexpected token -> reserved word: then
+      
+>>> Syntax error at line 6: unexpected token -> reserved word: then
+
+>>> Syntax error at line 7: expected SEMI unexpected token -> ID, name= fact
+      
+Syntax tree:
+  Read: x
+  If
+    Const: 0
+    Assign to: x
+    Assign to: fact
+      Const: 1
+    Repeat
+      Assign to: fact
+        Op: *
+          Id: fact
+          Id: x
+      Assign to: x
+        Op: -
+          Id: x
+          Const: 1
+      Op: =
+        Id: x
+        Const: 0
+    Write
+      Id: fact
